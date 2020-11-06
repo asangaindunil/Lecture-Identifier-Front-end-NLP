@@ -1,0 +1,41 @@
+<mat-tab-group dynamicHeight mat-align-tabs="center">
+    <mat-tab label="Quize">
+    
+    </mat-tab>
+    <mat-tab label="Back to Home">
+     
+    </mat-tab>
+    <mat-tab label="About">
+     
+    </mat-tab>
+  </mat-tab-group>
+  <mat-grid-list cols="1" rowHeight="1:1" >
+        <div>
+            <div *ngFor="let question of questionlist1; let i = index" align="center">
+                <br>
+                <mat-card>
+                    <mat-card-title>({{i+1}}) . {{question.question}}</mat-card-title>
+                    <mat-card-title hidden>({{question.id}})</mat-card-title>
+
+                    <br>
+                   <mat-radio-group aria-label="Select an option" #questionAns (change)="setQuestions(question.id,$event)">
+                    <mat-card-subtitle><mat-radio-button value="1"> {{question.answer1}}</mat-radio-button></mat-card-subtitle>
+                    <br>
+                    <mat-card-subtitle><mat-radio-button value="2"> {{question.answer2}}</mat-radio-button></mat-card-subtitle>
+                    <br>
+                    <mat-card-subtitle><mat-radio-button value="3"> {{question.answer3}}</mat-radio-button></mat-card-subtitle>
+                    <br>
+                    <mat-card-subtitle><mat-radio-button value="4"> {{question.answer4}}</mat-radio-button></mat-card-subtitle>
+                  </mat-radio-group>
+                </mat-card>
+              <br>
+            </div>
+        </div>
+          
+</mat-grid-list>
+<mat-grid-list cols="1"rowHeight="50px">
+    <mat-grid-tile colspan="1" rowHeight="50px">
+        <button mat-raised-button color="primary" position="right" (click)="submitAnswers()">SUBMIT</button>
+        </mat-grid-tile>
+      
+</mat-grid-list>

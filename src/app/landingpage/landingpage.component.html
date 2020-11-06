@@ -1,0 +1,73 @@
+<mat-tab-group dynamicHeight mat-align-tabs="center">
+    <mat-tab label="Home">
+    
+    </mat-tab>
+    <mat-tab label="How to do">
+     
+    </mat-tab>
+    <mat-tab label="About">
+     
+    </mat-tab>
+  </mat-tab-group>
+
+
+<mat-grid-list cols="1"rowHeight="100%">
+    <mat-grid-tile colspan="1" rowHeight="100%">
+      
+<mat-horizontal-stepper>
+    <mat-step label="Step 1 - Study relative lectures" state="phone">
+        <div style="position: relative; " align="center">
+            <img src="../../../assets/images/image2.jpg" alt="Unsplashed Random" width="600px" height="548" />
+            <div align="center">
+              <button class="btn btn-success" mat-button matStepperNext>Next</button>
+            </div>
+        </div>    
+      
+    </mat-step>
+    <mat-step label="Step 2 - Attend to the quize" state="chat">
+  
+        <img src="../../../assets/images/image.png" alt="Unsplashed Random" width="800px" height="548" />
+
+      <div align="center">
+        <button class="btn btn-warning" mat-button matStepperPrevious>Back</button>
+        <button class="btn btn-success" mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Step 3 - View your progress">
+<div  align="center" >
+        <img src="../../../assets/images/image1.jpg" alt="Unsplashed Random" width="600px" height="548" />
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>Favorite animal</mat-label>
+          <mat-select [formControl]="animalControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let animal of animals" [value]="animal">
+              {{animal.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error>
+          <mat-hint>{{animalControl.value?.sound}}</mat-hint>
+        </mat-form-field> -->
+        <div class="h1">Select Quiz</div>
+
+        <div class="row  justify-content-md-center form-group">
+          <!-- <label for="exampleFormControlSelect1">Example select</label> -->
+          <select class="col-md-6 form-control" id="exampleFormControlSelect1" #quiz (change)="onChange(quiz.value)">
+            <option value=""> <-----Select Your Quiz -----></option>
+            <option *ngFor="let quiz of quizs" [value]="quiz.id">
+              {{quiz.name}}
+
+            </option>
+           
+          </select>
+        </div>
+        <div align="center">
+            <button mat-raised-button color="primary" [disabled]="disableBtn" (click)="submitQuiz()">Start Quize</button>
+        </div>
+        </div>
+    </mat-step>
+
+  </mat-horizontal-stepper>
+  
+        </mat-grid-tile>
+      
+</mat-grid-list>
